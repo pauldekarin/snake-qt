@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = src1.0.0
-DISTDIR = /Users/bimba/Desktop/Projects/snake-qt/src/.tmp/src1.0.0
+DISTDIR = /Users/bimba/Desktop/Projects/snake-qt/snake-qt/.tmp/src1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=14.0 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/opt/homebrew/lib
 LIBS          = $(SUBLIBS) -F/opt/homebrew/lib -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtSql -framework QtCore -framework IOKit -framework DiskArbitration -framework AGL -framework OpenGL   
@@ -389,7 +389,6 @@ DIST          = /opt/homebrew/share/qt/mkspecs/features/spec_pre.prf \
 		/opt/homebrew/share/qt/mkspecs/features/qt_config.prf \
 		/opt/homebrew/share/qt/mkspecs/macx-clang/qmake.conf \
 		/opt/homebrew/share/qt/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/opt/homebrew/share/qt/mkspecs/features/exclusive_builds.prf \
 		/opt/homebrew/share/qt/mkspecs/features/mac/sdk.prf \
 		/opt/homebrew/share/qt/mkspecs/features/toolchain.prf \
@@ -445,12 +444,12 @@ TARGET        = src.app/Contents/MacOS/src
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 13.3
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
-EXPORT__QMAKE_STASH_ = /Users/bimba/Desktop/Projects/snake-qt/src/.qmake.stash
+EXPORT__QMAKE_STASH_ = 
 EXPORT_VALID_ARCHS = arm64
 EXPORT_DEFAULT_ARCHS = arm64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
 EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ARCHS), $(EXPORT_ARCHS), $(EXPORT_VALID_ARCHS)), -arch $(arch))
-EXPORT__PRO_FILE_ = /Users/bimba/Desktop/Projects/snake-qt/src/src.pro
+EXPORT__PRO_FILE_ = /Users/bimba/Desktop/Projects/snake-qt/snake-qt/src.pro
 
 
 include /opt/homebrew/Cellar/qt/6.7.3/share/qt/mkspecs/features/mac/sdk.mk
@@ -775,7 +774,6 @@ Makefile: src.pro /opt/homebrew/share/qt/mkspecs/macx-clang/qmake.conf /opt/home
 		/opt/homebrew/share/qt/mkspecs/features/qt_config.prf \
 		/opt/homebrew/share/qt/mkspecs/macx-clang/qmake.conf \
 		/opt/homebrew/share/qt/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/opt/homebrew/share/qt/mkspecs/features/exclusive_builds.prf \
 		/opt/homebrew/share/qt/mkspecs/features/mac/sdk.prf \
 		/opt/homebrew/share/qt/mkspecs/features/toolchain.prf \
@@ -1125,7 +1123,6 @@ Makefile: src.pro /opt/homebrew/share/qt/mkspecs/macx-clang/qmake.conf /opt/home
 /opt/homebrew/share/qt/mkspecs/features/qt_config.prf:
 /opt/homebrew/share/qt/mkspecs/macx-clang/qmake.conf:
 /opt/homebrew/share/qt/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /opt/homebrew/share/qt/mkspecs/features/exclusive_builds.prf:
 /opt/homebrew/share/qt/mkspecs/features/mac/sdk.prf:
 /opt/homebrew/share/qt/mkspecs/features/toolchain.prf:
@@ -1197,7 +1194,6 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r src.app
-	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -1237,7 +1233,7 @@ moc_animated_button.cpp: gui/desktop/components/animated_button/animated_button.
 		gui/desktop/settings.hpp \
 		moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
-	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/src/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/src -I/Users/bimba/Desktop/Projects/snake-qt/src -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/components/animated_button/animated_button.hpp -o moc_animated_button.cpp
+	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/snake-qt/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/components/animated_button/animated_button.hpp -o moc_animated_button.cpp
 
 moc_game_controller.cpp: gui/desktop/screens/game/game_controller.hpp \
 		brick_game/snake/include/engine.hpp \
@@ -1249,7 +1245,7 @@ moc_game_controller.cpp: gui/desktop/screens/game/game_controller.hpp \
 		gui/desktop/components/shadow/shadow.hpp \
 		moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
-	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/src/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/src -I/Users/bimba/Desktop/Projects/snake-qt/src -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/screens/game/game_controller.hpp -o moc_game_controller.cpp
+	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/snake-qt/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/screens/game/game_controller.hpp -o moc_game_controller.cpp
 
 moc_game_view.cpp: gui/desktop/screens/game/game_view.hpp \
 		brick_game/snake/include/engine.hpp \
@@ -1259,7 +1255,7 @@ moc_game_view.cpp: gui/desktop/screens/game/game_view.hpp \
 		gui/desktop/components/shadow/shadow.hpp \
 		moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
-	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/src/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/src -I/Users/bimba/Desktop/Projects/snake-qt/src -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/screens/game/game_view.hpp -o moc_game_view.cpp
+	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/snake-qt/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/screens/game/game_view.hpp -o moc_game_view.cpp
 
 moc_menu_view.cpp: gui/desktop/screens/menu/menu_view.hpp \
 		brick_game/snake/include/db.hpp \
@@ -1268,7 +1264,7 @@ moc_menu_view.cpp: gui/desktop/screens/menu/menu_view.hpp \
 		gui/desktop/settings.hpp \
 		moc_predefs.h \
 		/opt/homebrew/share/qt/libexec/moc
-	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/src/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/src -I/Users/bimba/Desktop/Projects/snake-qt/src -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/screens/menu/menu_view.hpp -o moc_menu_view.cpp
+	/opt/homebrew/share/qt/libexec/moc $(DEFINES) --include /Users/bimba/Desktop/Projects/snake-qt/snake-qt/moc_predefs.h -I/opt/homebrew/share/qt/mkspecs/macx-clang -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/Users/bimba/Desktop/Projects/snake-qt/snake-qt -I/opt/homebrew/lib/QtWidgets.framework/Headers -I/opt/homebrew/lib/QtGui.framework/Headers -I/opt/homebrew/lib/QtSql.framework/Headers -I/opt/homebrew/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/opt/homebrew/lib gui/desktop/screens/menu/menu_view.hpp -o moc_menu_view.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
