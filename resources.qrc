@@ -1,0 +1,9 @@
+<RCC version="1.0">
+    <qresource prefix="/fonts">
+        <file alias="n3310.ttf">gui/desktop/fonts/n3310.ttf</file>
+        <file alias="press2p.ttf">gui/desktop/fonts/press2p.ttf</file>
+    </qresource>
+    <qresource prefix="/styles">
+        <file alias="style.qss">gui/desktop/styles/style.qss</file>
+    </qresource>
+</RCC>

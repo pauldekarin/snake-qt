@@ -1,0 +1,5 @@
+db_snake
+src.app
+*.out
+*.o
+moc*
